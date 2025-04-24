@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
 import json
+from utils import display_asset_allocations
 
 st.set_page_config(layout="wide")
 
 st.title("Asset Allocation Dashboard")
+show_active_weights = st.toggle(label="Show Active Weights", value=False)
 
 # Load config.json
 with open("config.json") as f:
@@ -42,7 +44,7 @@ for asset in ['Stocks', 'Bonds', 'Cash']:
 
 level_1_allocation_df = pd.DataFrame(level_1_data, index=['Stocks', 'Bonds', 'Cash'])
 level_1_allocation_df.columns = pd.MultiIndex.from_tuples(level_1_allocation_df.columns, names=["Profile", "Type"])
-st.dataframe(level_1_allocation_df, use_container_width=True)
+display_asset_allocations(level_1_allocation_df, profiles, show_active_weights)
 
 # Stock style and size active weights
 stock_style_active = {}
@@ -148,9 +150,4 @@ for lvl2_asset_class in bonds_sector_df.index:
         df_total_allocations.loc[lvl2_asset_class, pd.IndexSlice[:, typ]] = bonds_sector_df.loc[lvl2_asset_class, typ] * df_total_allocations.loc['Bonds', pd.IndexSlice[:, typ]] / 100
 
 st.subheader("Total allocations")
-st.dataframe(
-    df_total_allocations.style
-    .format(precision=1)
-    .applymap(lambda _: 'font-weight: bold; background-color: #00008B; color: white;', subset=pd.IndexSlice[['Stocks', 'Bonds', 'Cash'], :]),
-    use_container_width=True
-)
+display_asset_allocations(df_total_allocations, profiles, show_active_weights, highlight_level_1=True)
