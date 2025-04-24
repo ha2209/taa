@@ -1,0 +1,45 @@
+{
+    "moderate_stock_active": 5.0,
+    "multipliers": {
+        "Conservative": 0.5,
+        "Moderately Conservative": 0.75,
+        "Moderate": 1.0,
+        "Moderately Aggressive": 1.2,
+        "Aggressive": 1.5
+    },
+    "strategic_allocations": {
+        "Stocks": [20, 40, 60, 70, 80],
+        "Bonds": [55, 50, 35, 25, 15],
+        "Cash": [25, 10, 5, 5, 5]
+    },
+    "stocks_size_style": {
+        "Large Cap Growth": 38,
+        "Large Cap Value": 38,
+        "Small Growth": 4,
+        "Small Value": 4,
+        "International: Developed": 13,
+        "International: Emerging": 3
+    },
+    "bonds_sector": {
+        "Tsys, CDs & GSEs": 40,
+        "Mortgage Backed": 25,
+        "IG Corp & Preferred": 25,
+        "High Yield": 5,
+        "International": 5
+    },
+    "default_stocks_active_weight": {
+        "Large Cap Growth": 0.0,
+        "Large Cap Value": 1.0,
+        "Small Growth": 1.0,
+        "Small Value": 2.0,
+        "International: Developed": -4.0,
+        "International: Emerging": 0.0
+    },
+    "default_bonds_active_weight": {
+        "Tsys, CDs & GSEs": 4.0,
+        "Mortgage Backed": 2.0,
+        "IG Corp & Preferred": -2.0,
+        "High Yield": -4.0,
+        "International": 0.0
+    }
+}
