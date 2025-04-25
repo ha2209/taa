@@ -1,5 +1,5 @@
 {
-    "moderate_stock_active": 5.0,
+    "moderate_equities_active": 5.0,
     "multipliers": {
         "Conservative": 0.5,
         "Moderately Conservative": 0.75,
@@ -8,38 +8,38 @@
         "Aggressive": 1.5
     },
     "strategic_allocations": {
-        "Stocks": [20, 40, 60, 70, 80],
-        "Bonds": [55, 50, 35, 25, 15],
+        "Equities": [20, 40, 60, 70, 80],
+        "Fixed Income": [55, 50, 35, 25, 15],
         "Cash": [25, 10, 5, 5, 5]
     },
-    "stocks_size_style": {
-        "Large Cap Growth": 38,
-        "Large Cap Value": 38,
-        "Small Growth": 4,
-        "Small Value": 4,
-        "International: Developed": 13,
-        "International: Emerging": 3
+    "equities_size_style": {
+        "U.S. Large Cap Growth": 38,
+        "U.S. Large Cap Value": 38,
+        "U.S. Small Cap Growth": 4,
+        "U.S. Small Cap Value": 4,
+        "International Developed Equity": 13,
+        "Emerging Markets": 3
     },
-    "bonds_sector": {
-        "Tsys, CDs & GSEs": 40,
-        "Mortgage Backed": 25,
-        "IG Corp & Preferred": 25,
-        "High Yield": 5,
-        "International": 5
+    "fixed_income_sector": {
+        "U.S. Governments": 40,
+        "U.S. Mortgages": 25,
+        "U.S. Corporates": 25,
+        "U.S. High Yield": 5,
+        "International Fixed Income": 5
     },
-    "default_stocks_active_weight": {
-        "Large Cap Growth": 0.0,
-        "Large Cap Value": 1.0,
-        "Small Growth": 1.0,
-        "Small Value": 2.0,
-        "International: Developed": -4.0,
-        "International: Emerging": 0.0
+    "default_equities_active_weight": {
+        "U.S. Large Cap Growth": 0.0,
+        "U.S. Large Cap Value": 1.0,
+        "U.S. Small Cap Growth": 1.0,
+        "U.S. Small Cap Value": 2.0,
+        "International Developed Equity": -4.0,
+        "Emerging Markets": 0.0
     },
-    "default_bonds_active_weight": {
-        "Tsys, CDs & GSEs": 4.0,
-        "Mortgage Backed": 2.0,
-        "IG Corp & Preferred": -2.0,
-        "High Yield": -4.0,
-        "International": 0.0
+    "default_fixed_income_active_weight": {
+        "U.S. Governments": 4.0,
+        "U.S. Mortgages": 2.0,
+        "U.S. Corporates": -2.0,
+        "U.S. High Yield": -4.0,
+        "International Fixed Income": 0.0
     }
 }
