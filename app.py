@@ -268,10 +268,8 @@ def main():
     st.subheader("Input Level 2 Active Weights")
     col1, col2 = st.columns(2)
     with col1:
-        st.subheader("Equities size and style active weights")
         equities_style_active = input_active_weights(config["default_equities_active_weight"], "Equities (%)")
     with col2:
-        st.subheader("Fixed Income sector active weights")
         fixed_income_sector_active = input_active_weights(config["default_fixed_income_active_weight"], "Fixed Income (%)")
 
     # Compute Level 2 Tactical Allocations
