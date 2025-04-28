@@ -36,7 +36,7 @@ def display_asset_allocations(df, profiles, show_active_weights, highlight_level
         df_style = df.style.format(precision=1)
         if highlight_level_1:
             st.dataframe(
-                df_style.map(lambda _: 'font-weight: bold; background-color: #00008B; color: white;', subset=pd.IndexSlice[['Equities', 'Fixed Income', 'Cash'], :]),
+                df_style.map(lambda _: 'font-weight: bold; background-color: #00008B; color: white;', subset=pd.IndexSlice[['Equity', 'Fixed Income', 'Cash'], :]),
                 use_container_width=True
             )
         else:
@@ -92,7 +92,7 @@ def display_allocation_with_highlights(df, precision=1, highlight_level_1=False)
     )
     if highlight_level_1:
         st.dataframe(
-            df_style.map(lambda _: 'font-weight: bold; background-color: #00008B; color: white;', subset=pd.IndexSlice[['Equities', 'Fixed Income', 'Cash'], :]),
+            df_style.map(lambda _: 'font-weight: bold; background-color: #00008B; color: white;', subset=pd.IndexSlice[['Equity', 'Fixed Income', 'Cash'], :]),
             use_container_width=True
         )
     else:

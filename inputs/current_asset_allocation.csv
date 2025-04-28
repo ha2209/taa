@@ -1,0 +1,169 @@
+asset_class,broad_asset_class,typ,profile,weight
+U.S. Large Cap Growth,Equity,Strategic,All Fixed Income,0
+U.S. Large Cap Growth,Equity,Tactical,All Fixed Income,0
+U.S. Large Cap Growth,Equity,Strategic,Conservative,7
+U.S. Large Cap Growth,Equity,Tactical,Conservative,8
+U.S. Large Cap Growth,Equity,Strategic,Moderately Conservative,12
+U.S. Large Cap Growth,Equity,Tactical,Moderately Conservative,13
+U.S. Large Cap Growth,Equity,Strategic,Moderate,17
+U.S. Large Cap Growth,Equity,Tactical,Moderate,18
+U.S. Large Cap Growth,Equity,Strategic,Moderately Aggressive,22
+U.S. Large Cap Growth,Equity,Tactical,Moderately Aggressive,23
+U.S. Large Cap Growth,Equity,Strategic,Aggressive,27
+U.S. Large Cap Growth,Equity,Tactical,Aggressive,28
+U.S. Large Cap Growth,Equity,Strategic,All Equity,29
+U.S. Large Cap Growth,Equity,Tactical,All Equity,29
+U.S. Large Cap Value,Equity,Strategic,All Fixed Income,0
+U.S. Large Cap Value,Equity,Tactical,All Fixed Income,0
+U.S. Large Cap Value,Equity,Strategic,Conservative,8
+U.S. Large Cap Value,Equity,Tactical,Conservative,10
+U.S. Large Cap Value,Equity,Strategic,Moderately Conservative,14
+U.S. Large Cap Value,Equity,Tactical,Moderately Conservative,16
+U.S. Large Cap Value,Equity,Strategic,Moderate,20
+U.S. Large Cap Value,Equity,Tactical,Moderate,22
+U.S. Large Cap Value,Equity,Strategic,Moderately Aggressive,26
+U.S. Large Cap Value,Equity,Tactical,Moderately Aggressive,28
+U.S. Large Cap Value,Equity,Strategic,Aggressive,31
+U.S. Large Cap Value,Equity,Tactical,Aggressive,33
+U.S. Large Cap Value,Equity,Strategic,All Equity,34
+U.S. Large Cap Value,Equity,Tactical,All Equity,35
+U.S. Small Cap Growth,Equity,Strategic,All Fixed Income,0
+U.S. Small Cap Growth,Equity,Tactical,All Fixed Income,0
+U.S. Small Cap Growth,Equity,Strategic,Conservative,1
+U.S. Small Cap Growth,Equity,Tactical,Conservative,2
+U.S. Small Cap Growth,Equity,Strategic,Moderately Conservative,1
+U.S. Small Cap Growth,Equity,Tactical,Moderately Conservative,2
+U.S. Small Cap Growth,Equity,Strategic,Moderate,2
+U.S. Small Cap Growth,Equity,Tactical,Moderate,3
+U.S. Small Cap Growth,Equity,Strategic,Moderately Aggressive,3
+U.S. Small Cap Growth,Equity,Tactical,Moderately Aggressive,4
+U.S. Small Cap Growth,Equity,Strategic,Aggressive,4
+U.S. Small Cap Growth,Equity,Tactical,Aggressive,5
+U.S. Small Cap Growth,Equity,Strategic,All Equity,4
+U.S. Small Cap Growth,Equity,Tactical,All Equity,4
+U.S. Small Cap Value,Equity,Strategic,All Fixed Income,0
+U.S. Small Cap Value,Equity,Tactical,All Fixed Income,0
+U.S. Small Cap Value,Equity,Strategic,Conservative,1
+U.S. Small Cap Value,Equity,Tactical,Conservative,2
+U.S. Small Cap Value,Equity,Strategic,Moderately Conservative,1
+U.S. Small Cap Value,Equity,Tactical,Moderately Conservative,2
+U.S. Small Cap Value,Equity,Strategic,Moderate,2
+U.S. Small Cap Value,Equity,Tactical,Moderate,3
+U.S. Small Cap Value,Equity,Strategic,Moderately Aggressive,3
+U.S. Small Cap Value,Equity,Tactical,Moderately Aggressive,4
+U.S. Small Cap Value,Equity,Strategic,Aggressive,4
+U.S. Small Cap Value,Equity,Tactical,Aggressive,5
+U.S. Small Cap Value,Equity,Strategic,All Equity,4
+U.S. Small Cap Value,Equity,Tactical,All Equity,5
+International Developed Equity,Equity,Strategic,All Fixed Income,0
+International Developed Equity,Equity,Tactical,All Fixed Income,0
+International Developed Equity,Equity,Strategic,Conservative,5
+International Developed Equity,Equity,Tactical,Conservative,5
+International Developed Equity,Equity,Strategic,Moderately Conservative,8
+International Developed Equity,Equity,Tactical,Moderately Conservative,8
+International Developed Equity,Equity,Strategic,Moderate,11
+International Developed Equity,Equity,Tactical,Moderate,11
+International Developed Equity,Equity,Strategic,Moderately Aggressive,14
+International Developed Equity,Equity,Tactical,Moderately Aggressive,14
+International Developed Equity,Equity,Strategic,Aggressive,16
+International Developed Equity,Equity,Tactical,Aggressive,16
+International Developed Equity,Equity,Strategic,All Equity,18
+International Developed Equity,Equity,Tactical,All Equity,16
+Emerging Markets,Equity,Strategic,All Fixed Income,0
+Emerging Markets,Equity,Tactical,All Fixed Income,0
+Emerging Markets,Equity,Strategic,Conservative,2
+Emerging Markets,Equity,Tactical,Conservative,2
+Emerging Markets,Equity,Strategic,Moderately Conservative,4
+Emerging Markets,Equity,Tactical,Moderately Conservative,4
+Emerging Markets,Equity,Strategic,Moderate,6
+Emerging Markets,Equity,Tactical,Moderate,6
+Emerging Markets,Equity,Strategic,Moderately Aggressive,7
+Emerging Markets,Equity,Tactical,Moderately Aggressive,7
+Emerging Markets,Equity,Strategic,Aggressive,9
+Emerging Markets,Equity,Tactical,Aggressive,9
+Emerging Markets,Equity,Strategic,All Equity,10
+Emerging Markets,Equity,Tactical,All Equity,10
+U.S. Governments,Fixed Income,Strategic,All Fixed Income,28
+U.S. Governments,Fixed Income,Tactical,All Fixed Income,28
+U.S. Governments,Fixed Income,Strategic,Conservative,17
+U.S. Governments,Fixed Income,Tactical,Conservative,15
+U.S. Governments,Fixed Income,Strategic,Moderately Conservative,17
+U.S. Governments,Fixed Income,Tactical,Moderately Conservative,15
+U.S. Governments,Fixed Income,Strategic,Moderate,13
+U.S. Governments,Fixed Income,Tactical,Moderate,11
+U.S. Governments,Fixed Income,Strategic,Moderately Aggressive,8
+U.S. Governments,Fixed Income,Tactical,Moderately Aggressive,6
+U.S. Governments,Fixed Income,Strategic,Aggressive,3
+U.S. Governments,Fixed Income,Tactical,Aggressive,0
+U.S. Governments,Fixed Income,Strategic,All Equity,0
+U.S. Governments,Fixed Income,Tactical,All Equity,0
+U.S. Mortgages,Fixed Income,Strategic,All Fixed Income,24
+U.S. Mortgages,Fixed Income,Tactical,All Fixed Income,24
+U.S. Mortgages,Fixed Income,Strategic,Conservative,12
+U.S. Mortgages,Fixed Income,Tactical,Conservative,11
+U.S. Mortgages,Fixed Income,Strategic,Moderately Conservative,13
+U.S. Mortgages,Fixed Income,Tactical,Moderately Conservative,12
+U.S. Mortgages,Fixed Income,Strategic,Moderate,10
+U.S. Mortgages,Fixed Income,Tactical,Moderate,9
+U.S. Mortgages,Fixed Income,Strategic,Moderately Aggressive,3
+U.S. Mortgages,Fixed Income,Tactical,Moderately Aggressive,2
+U.S. Mortgages,Fixed Income,Strategic,Aggressive,0
+U.S. Mortgages,Fixed Income,Tactical,Aggressive,0
+U.S. Mortgages,Fixed Income,Strategic,All Equity,0
+U.S. Mortgages,Fixed Income,Tactical,All Equity,0
+U.S. Corporates,Fixed Income,Strategic,All Fixed Income,26
+U.S. Corporates,Fixed Income,Tactical,All Fixed Income,26
+U.S. Corporates,Fixed Income,Strategic,Conservative,17
+U.S. Corporates,Fixed Income,Tactical,Conservative,15
+U.S. Corporates,Fixed Income,Strategic,Moderately Conservative,16
+U.S. Corporates,Fixed Income,Tactical,Moderately Conservative,14
+U.S. Corporates,Fixed Income,Strategic,Moderate,13
+U.S. Corporates,Fixed Income,Tactical,Moderate,11
+U.S. Corporates,Fixed Income,Strategic,Moderately Aggressive,11
+U.S. Corporates,Fixed Income,Tactical,Moderately Aggressive,9
+U.S. Corporates,Fixed Income,Strategic,Aggressive,5
+U.S. Corporates,Fixed Income,Tactical,Aggressive,3
+U.S. Corporates,Fixed Income,Strategic,All Equity,0
+U.S. Corporates,Fixed Income,Tactical,All Equity,0
+U.S. High Yield,Fixed Income,Strategic,All Fixed Income,5
+U.S. High Yield,Fixed Income,Tactical,All Fixed Income,5
+U.S. High Yield,Fixed Income,Strategic,Conservative,3
+U.S. High Yield,Fixed Income,Tactical,Conservative,3
+U.S. High Yield,Fixed Income,Strategic,Moderately Conservative,3
+U.S. High Yield,Fixed Income,Tactical,Moderately Conservative,3
+U.S. High Yield,Fixed Income,Strategic,Moderate,2
+U.S. High Yield,Fixed Income,Tactical,Moderate,2
+U.S. High Yield,Fixed Income,Strategic,Moderately Aggressive,1
+U.S. High Yield,Fixed Income,Tactical,Moderately Aggressive,1
+U.S. High Yield,Fixed Income,Strategic,Aggressive,0
+U.S. High Yield,Fixed Income,Tactical,Aggressive,0
+U.S. High Yield,Fixed Income,Strategic,All Equity,0
+U.S. High Yield,Fixed Income,Tactical,All Equity,0
+International Fixed Income,Fixed Income,Strategic,All Fixed Income,16
+International Fixed Income,Fixed Income,Tactical,All Fixed Income,16
+International Fixed Income,Fixed Income,Strategic,Conservative,22
+International Fixed Income,Fixed Income,Tactical,Conservative,22
+International Fixed Income,Fixed Income,Strategic,Moderately Conservative,10
+International Fixed Income,Fixed Income,Tactical,Moderately Conservative,10
+International Fixed Income,Fixed Income,Strategic,Moderate,3
+International Fixed Income,Fixed Income,Tactical,Moderate,3
+International Fixed Income,Fixed Income,Strategic,Moderately Aggressive,1
+International Fixed Income,Fixed Income,Tactical,Moderately Aggressive,1
+International Fixed Income,Fixed Income,Strategic,Aggressive,0
+International Fixed Income,Fixed Income,Tactical,Aggressive,0
+International Fixed Income,Fixed Income,Strategic,All Equity,0
+International Fixed Income,Fixed Income,Tactical,All Equity,0
+Cash,Cash,Strategic,All Fixed Income,1
+Cash,Cash,Tactical,All Fixed Income,1
+Cash,Cash,Strategic,Conservative,5
+Cash,Cash,Tactical,Conservative,5
+Cash,Cash,Strategic,Moderately Conservative,1
+Cash,Cash,Tactical,Moderately Conservative,1
+Cash,Cash,Strategic,Moderate,1
+Cash,Cash,Tactical,Moderate,1
+Cash,Cash,Strategic,Moderately Aggressive,1
+Cash,Cash,Tactical,Moderately Aggressive,1
+Cash,Cash,Strategic,Aggressive,1
+Cash,Cash,Tactical,Aggressive,1
+Cash,Cash,Strategic,All Equity,1
+Cash,Cash,Tactical,All Equity,1

@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import json
 from utils import display_asset_allocations
 
@@ -148,30 +149,30 @@ def compute_level_2_tactical_allocations(base_allocations, active_weights):
 
 def display_level_2_allocations(equities_size_style, fixed_income_sector, tactical_equities, tactical_fixed_income):
     """
-    Displays and returns dataframes for level 2 allocations of equities and fixed income.
+    Displays and returns dataframes for level 2 allocations of equity and fixed income.
 
     This function creates two columns in a Streamlit app to display the strategic and tactical
-    allocations for equities (size and style) and fixed income (sector). It also returns the
+    allocations for equity (size and style) and fixed income (sector). It also returns the
     corresponding dataframes for further use.
 
     Args:
-        equities_size_style (dict): A dictionary containing strategic allocations for equities
+        equities_size_style (dict): A dictionary containing strategic allocations for equity
             based on size and style.
         fixed_income_sector (dict): A dictionary containing strategic allocations for fixed
             income based on sector.
-        tactical_equities (dict): A dictionary containing tactical allocations for equities
+        tactical_equities (dict): A dictionary containing tactical allocations for equity
             based on size and style.
         tactical_fixed_income (dict): A dictionary containing tactical allocations for fixed
             income based on sector.
 
     Returns:
         tuple: A tuple containing two pandas DataFrames:
-            - equities_df: DataFrame with strategic and tactical allocations for equities.
+            - equities_df: DataFrame with strategic and tactical allocations for equity.
             - fixed_income_df: DataFrame with strategic and tactical allocations for fixed income.
     """
     col1, col2 = st.columns(2)
     with col1:
-        st.subheader("Equities size and style allocations")
+        st.subheader("Equity size and style allocations")
         equities_df = pd.DataFrame(
             {'Strategic': equities_size_style, 'Tactical': tactical_equities},
             index=equities_size_style.keys()
@@ -189,22 +190,22 @@ def display_level_2_allocations(equities_size_style, fixed_income_sector, tactic
 
 def compute_total_allocations(level_1_df, equities_df, fixed_income_df, strategic_allocations):
     """
-    Computes the total allocations for various asset classes, including equities, fixed income, 
-    and cash, based on the provided level 1 allocations, equities breakdown, fixed income breakdown, 
+    Computes the total allocations for various asset classes, including equity, fixed income, 
+    and cash, based on the provided level 1 allocations, equity breakdown, fixed income breakdown, 
     and strategic allocations.
 
     Args:
         level_1_df (pd.DataFrame): A DataFrame containing level 1 asset class allocations 
-            (e.g., 'Equities', 'Fixed Income', 'Cash') with columns representing allocation types 
+            (e.g., 'Equity', 'Fixed Income', 'Cash') with columns representing allocation types 
             (e.g., 'Strategic', 'Tactical').
-        equities_df (pd.DataFrame): A DataFrame containing level 2 breakdown of equities 
+        equities_df (pd.DataFrame): A DataFrame containing level 2 breakdown of equity 
             with rows as asset classes (e.g., 'Large Cap', 'Small Cap') and columns for allocation 
             types (e.g., 'Strategic', 'Tactical').
         fixed_income_df (pd.DataFrame): A DataFrame containing level 2 breakdown of fixed income 
             with rows as asset classes (e.g., 'Government Bonds', 'Corporate Bonds') and columns 
             for allocation types (e.g., 'Strategic', 'Tactical').
         strategic_allocations (dict): A dictionary where keys are level 1 asset classes 
-            (e.g., 'Equities', 'Fixed Income', 'Cash') and values are their respective strategic 
+            (e.g., 'Equity', 'Fixed Income', 'Cash') and values are their respective strategic 
             allocation percentages.
 
     Returns:
@@ -212,7 +213,7 @@ def compute_total_allocations(level_1_df, equities_df, fixed_income_df, strategi
         including level 1 and level 2 breakdowns, with rows as asset classes and columns 
         representing allocation types (e.g., 'Strategic', 'Tactical').
     """
-    idx = ['Equities'] + equities_df.index.to_list() + ['Fixed Income'] + fixed_income_df.index.to_list() + ['Cash']
+    idx = ['Equity'] + equities_df.index.to_list() + ['Fixed Income'] + fixed_income_df.index.to_list() + ['Cash']
     cols = level_1_df.columns
     df_total_allocations = pd.DataFrame(index=idx, columns=cols)
     for lvl1_asset_class in strategic_allocations.keys():
@@ -220,7 +221,7 @@ def compute_total_allocations(level_1_df, equities_df, fixed_income_df, strategi
     for lvl2_asset_class in equities_df.index:
         for typ in ['Strategic', 'Tactical']:
             df_total_allocations.loc[lvl2_asset_class, pd.IndexSlice[:, typ]] = (
-                equities_df.loc[lvl2_asset_class, typ] * df_total_allocations.loc['Equities', pd.IndexSlice[:, typ]] / 100
+                equities_df.loc[lvl2_asset_class, typ] * df_total_allocations.loc['Equity', pd.IndexSlice[:, typ]] / 100
             )
     for lvl2_asset_class in fixed_income_df.index:
         for typ in ['Strategic', 'Tactical']:
@@ -230,6 +231,33 @@ def compute_total_allocations(level_1_df, equities_df, fixed_income_df, strategi
     return df_total_allocations
 
 
+def load_asset_allocations(file_path: str, atol: float = 1e-4):
+    """
+    Load asset allocations from a CSV file and verify that the sum of weights equals 100% for each profile and type.
+
+    
+    Args:
+        file_path (str): The path to the CSV file containing asset allocations.
+        atol (float): The absolute tolerance for checking if the sum of weights equals 100%.
+            Defaults to 1e-4.
+
+    Returns:
+        pd.DataFrame: A DataFrame containing the loaded asset allocations.
+
+    Raises:
+        FileNotFoundError: If the specified file does not exist.
+        ValueError: If the sum of weights for each profile and type does not equal 100%.
+    """
+    df = pd.read_csv(file_path)
+    # Verify weights sum to 100% for each profile and typ
+    prf_typ_sum = df.groupby(['profile', 'typ'])['weight'].sum()
+    np.testing.assert_allclose(
+        prf_typ_sum.values, 100.0, atol=atol,
+        err_msg="The sum of weights for each profile and type must equal 100%."
+    )
+    return df
+
+
 def main():
     st.set_page_config(layout="wide")
     st.title("Asset Allocation Dashboard")
@@ -237,21 +265,39 @@ def main():
 
     config = load_config()
 
+    # Read current asset allocations
+    df_asset_allocation = load_asset_allocations(file_path=config["file_path"]["current_asset_allocation"])
     # Inputs
     multipliers = config["multipliers"]
     profiles = list(multipliers.keys())
-    strategic_allocations = config["strategic_allocations"]
-    equities_size_style = config["equities_size_style"]
-    fixed_income_sector = config["fixed_income_sector"]
+    df_broad_asset_allocation = df_asset_allocation.groupby(["typ", "profile", "broad_asset_class"])["weight"].sum().reset_index()
+    strategic_allocations = {
+        asset: df_broad_asset_allocation.query(
+            f'typ == "Strategic" and broad_asset_class == "{asset}"'
+        ).pivot(index="broad_asset_class", columns="profile", values="weight").loc[asset, profiles].tolist()
+        for asset in config["broad_asset_classes"]
+    }
+    # Read Equity Size, Style allocation from all equity profile in df_asset_allocation
+    equities_size_style = df_asset_allocation.query(
+        'typ == "Strategic" and broad_asset_class == "Equity" and profile == "All Equity"'
+    )[["asset_class", "weight"]].set_index("asset_class")
+    # Normalize weights to sum to 100%
+    equities_size_style = (equities_size_style / equities_size_style.sum() * 100).squeeze().to_dict()
+    # Read Fixed Income Sector allocation from all fixed income profile in df_asset_allocation
+    fixed_income_sector = df_asset_allocation.query(
+        'typ == "Strategic" and broad_asset_class == "Fixed Income" and profile == "All Fixed Income"'
+    )[["asset_class", "weight"]].set_index("asset_class")
+    # Normalize weights to sum to 100%
+    fixed_income_sector = (fixed_income_sector / fixed_income_sector.sum() * 100).squeeze().to_dict()
 
     moderate_active_weight = {
-        'equities': st.number_input(
-            "Moderate Profile: Active Equities Weight (%)",
+        'equity': st.number_input(
+            "Moderate Profile: Active Equity Weight (%)",
             min_value=-10.0, max_value=10.0,
             value=config["moderate_equities_active"], step=1.0
         )
     }
-    moderate_active_weight['fixed_income'] = -1. * moderate_active_weight['equities']
+    moderate_active_weight['fixed_income'] = -1. * moderate_active_weight['equity']
     moderate_active_weight['cash'] = 0.0
 
     # Compute Tactical allocations
@@ -268,7 +314,7 @@ def main():
     st.subheader("Input Level 2 Active Weights")
     col1, col2 = st.columns(2)
     with col1:
-        equities_style_active = input_active_weights(config["default_equities_active_weight"], "Equities (%)")
+        equities_style_active = input_active_weights(config["default_equities_active_weight"], "Equity (%)")
     with col2:
         fixed_income_sector_active = input_active_weights(config["default_fixed_income_active_weight"], "Fixed Income (%)")
 
