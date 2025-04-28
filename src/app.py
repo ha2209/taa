@@ -83,31 +83,35 @@ def display_level_1_allocations(strategic_allocations, tactical_allocations, pro
     return level_1_allocation_df
 
 
-def input_active_weights(default_weights, title, min_value=-10.0, max_value=10.0, step=1.0):
+def input_active_weights(default_weights, strategic_weights, title, min_value=-10.0, max_value=10.0, step=1.0, min_cushion: int = 1):
     """
     Displays a Streamlit interface for adjusting active weights and validates their sum.
 
     Parameters:
         default_weights (dict): A dictionary where keys are column names and values are the default active weights.
+        strategic_weights (dict): A dictionary where keys are column names and values are the strategic weights.
         title (str): The title to display above the sliders in the Streamlit interface.
         min_value (float, optional): The minimum value for the sliders. Defaults to -10.0.
         max_value (float, optional): The maximum value for the sliders. Defaults to 10.0.
         step (float, optional): The step size for the sliders. Defaults to 1.0.
+        min_cushion (int, optional): The minimum cushion to ensure tactical weights do not go negative. Defaults to 1.
 
     Returns:
         dict: A dictionary of adjusted active weights where keys are column names and values are the updated weights.
 
     Notes:
         - The function uses Streamlit to create sliders for each column in the `default_weights` dictionary.
+        - The minimum value for each slider is dynamically set to avoid negative tactical weights.
         - It ensures that the sum of all active weights equals 0. If not, an error message is displayed.
         - If the sum is valid, a success message is displayed.
     """
-    st.subheader(title)
+    st.subheader(title, help=f"Maximum underweight amount is set to ensure at least {min_cushion:.0f}% tactical weight for each asset class.")
     active_weights_df = pd.DataFrame(default_weights, index=['Active Weight (%)'])
     for col in active_weights_df.columns:
+        min_value_col = max(min_value, -np.floor(strategic_weights[col]) + min_cushion)  # Ensure tactical weight does not go negative and round up
         active_weights_df.at['Active Weight (%)', col] = st.slider(
             f"{col}",
-            min_value=min_value,
+            min_value=min_value_col,
             max_value=max_value,
             value=active_weights_df.at['Active Weight (%)', col],
             step=step
@@ -314,9 +318,11 @@ def main():
     st.subheader("Input Level 2 Active Weights")
     col1, col2 = st.columns(2)
     with col1:
-        equities_style_active = input_active_weights(config["default_equities_active_weight"], "Equity (%)")
+        equities_style_active = input_active_weights(
+            default_weights=config["default_equities_active_weight"], strategic_weights=equities_size_style, title="Equity (%)")
     with col2:
-        fixed_income_sector_active = input_active_weights(config["default_fixed_income_active_weight"], "Fixed Income (%)")
+        fixed_income_sector_active = input_active_weights(
+            config["default_fixed_income_active_weight"], strategic_weights=fixed_income_sector, title="Fixed Income (%)")
 
     # Compute Level 2 Tactical Allocations
     tactical_equities_size_style = compute_level_2_tactical_allocations(equities_size_style, equities_style_active)
