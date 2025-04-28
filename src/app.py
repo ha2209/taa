@@ -4,12 +4,12 @@ import json
 from utils import display_asset_allocations
 
 
-def load_config(file_path="config.json"):
+def load_config(file_path="config/config.json"):
     """
     Load configuration data from a JSON file.
 
     Args:
-        file_path (str): The path to the JSON configuration file. Defaults to "config.json".
+        file_path (str): The path to the JSON configuration file. Defaults to "config/config.json".
 
     Returns:
         dict: The configuration data loaded from the file.
