@@ -114,7 +114,8 @@ def input_active_weights(default_weights, strategic_weights, title, min_value=-1
             min_value=min_value_col,
             max_value=max_value,
             value=active_weights_df.at['Active Weight (%)', col],
-            step=step
+            step=step,
+            format="%d"
         )
     if active_weights_df.sum(axis=1).values[0] != 0:
         st.error("The sum of active weights must equal 0. Please adjust the weights.")

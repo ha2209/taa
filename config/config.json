@@ -4,25 +4,27 @@
     "moderate_equities_active": 5.0,
     "broad_asset_classes": ["Equity", "Fixed Income", "Cash"],
     "multipliers": {
+        "All Fixed Income": 0.0,
         "Conservative": 0.5,
         "Moderately Conservative": 0.75,
         "Moderate": 1.0,
         "Moderately Aggressive": 1.2,
-        "Aggressive": 1.5
+        "Aggressive": 1.5,
+        "All Equity": 0.0
     },
     "default_equities_active_weight": {
         "U.S. Large Cap Growth": 0.0,
         "U.S. Large Cap Value": 1.0,
-        "U.S. Small Cap Growth": 1.0,
-        "U.S. Small Cap Value": 2.0,
-        "International Developed Equity": -4.0,
+        "U.S. Small Cap Growth": 0.0,
+        "U.S. Small Cap Value": 1.0,
+        "International Developed Equity": -2.0,
         "Emerging Markets": 0.0
     },
     "default_fixed_income_active_weight": {
-        "U.S. Governments": 4.0,
-        "U.S. Mortgages": 2.0,
-        "U.S. Corporates": -2.0,
-        "U.S. High Yield": -4.0,
+        "U.S. Governments": 0.0,
+        "U.S. Mortgages": 0.0,
+        "U.S. Corporates": 0.0,
+        "U.S. High Yield": 0.0,
         "International Fixed Income": 0.0
     }
 }
